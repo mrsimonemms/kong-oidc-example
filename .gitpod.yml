@@ -10,3 +10,5 @@ vscode:
   extensions:
     - donjayamanne.git-extension-pack
     - EditorConfig.EditorConfig
+    - ms-vscode.makefile-tools
+    - ms-kubernetes-tools.vscode-kubernetes-tools

@@ -1,0 +1,20 @@
+apiVersion: k3d.io/v1alpha4
+kind: Simple
+metadata:
+  name: k3d
+servers: 1
+agents: 2
+image: docker.io/rancher/k3s:v1.24.4-k3s1
+registries:
+  create:
+    name: registry.localhost
+    host: "0.0.0.0"
+    hostPort: "5000"
+  use: []
+ports: []
+options:
+  k3d:
+    wait: true
+  kubeconfig:
+    switchCurrentContext: true
+    updateDefaultKubeconfig: true

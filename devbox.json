@@ -1,11 +1,19 @@
 {
   "packages": [
     "pre-commit",
-    "ruby"
+    "ruby",
+    "docker",
+    "kubectl",
+    "helm"
   ],
   "shell": {
     "init_hook": [
-      "pre-commit install --install-hooks"
+      "export KUBECONFIG=\"${PWD}/.devbox/kubeconfig.yaml\"",
+      "echo 'Installing k3d'",
+      "curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | K3D_INSTALL_DIR=\"${PWD}/.devbox/nix/profile/default/bin\" bash",
+      "k3d version",
+      "pre-commit install --install-hooks",
+      "make"
     ]
   },
   "nixpkgs": {
